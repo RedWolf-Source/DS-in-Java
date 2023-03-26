@@ -30,6 +30,21 @@ class HighArray
       a[nElems] = value;             // insert it
       nElems++;                      // increment size
       }
+
+   //-----------------------------------------------------------
+   //-----------------------------------------------------------
+      //new method - getMax()
+   public long getMax()
+   {
+      long max = 0;
+      for (int i = 0; i < nElems; i++){
+         if (a[i] > max)
+            max = a[i];
+         if (i == nElems)
+            return -1;
+      }
+      return max;
+   }
    //-----------------------------------------------------------
    public boolean delete(long value)
       {
@@ -83,11 +98,12 @@ class HighArrayApp
          System.out.println("Found " + searchKey);
       else
          System.out.println("Can't find " + searchKey);
-
+         System.out.println(arr.getMax());
       arr.delete(00);               // delete 3 items
       arr.delete(55);
       arr.delete(99);
 
       arr.display();                // display items again
+      System.out.println(arr.getMax());
       }  // end main()
    }  // end class HighArrayApp
