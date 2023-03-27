@@ -33,7 +33,7 @@ class HighArray
 
    //-----------------------------------------------------------
    //-----------------------------------------------------------
-      //new method - getMax()
+      //new method
    public long getMax()
    {
       long max = 0;
@@ -45,6 +45,23 @@ class HighArray
       }
       return max;
    }
+      public void removeMax()
+      {
+         long max = 0;
+         int i = 0;
+         for (i = 0; i < nElems; i++){
+            if (a[i] > max)
+               max = a[i];
+         }
+         int j;
+         for(j=0; j<nElems; j++)        // look for it
+            if( max == a[j] )
+               break;
+         for(int k=j; k<nElems; k++) // move higher ones down
+            a[k] = a[k+1];
+         nElems--;
+      }
+
    //-----------------------------------------------------------
    public boolean delete(long value)
       {
@@ -104,6 +121,11 @@ class HighArrayApp
       arr.delete(99);
 
       arr.display();                // display items again
+         System.out.println(arr.getMax());
+         arr.removeMax();
+         arr.display();
       System.out.println(arr.getMax());
+         arr.removeMax();
+         arr.display();
       }  // end main()
    }  // end class HighArrayApp
